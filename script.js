@@ -1,5 +1,26 @@
 'use strict';
 document.getElementById('year').textContent = new Date().getFullYear();
+
+const header = document.querySelector('.header');
+const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+onScroll();
+window.addEventListener('scroll', onScroll, { passive: true });
+
+// Fade sections in as they scroll into view; without IntersectionObserver everything just shows.
+const revealed = document.querySelectorAll('[data-reveal]');
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('in');
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  revealed.forEach(el => observer.observe(el));
+} else {
+  revealed.forEach(el => el.classList.add('in'));
+}
+
 const lightbox = document.getElementById('lightbox');
 const image = lightbox.querySelector('img');
 let opener;
