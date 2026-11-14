@@ -185,6 +185,7 @@ h2 { font-size: clamp(36px, 4.4vw, 58px); letter-spacing: -0.035em; line-height:
 .game-panel::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; }
 .spin-panel::before { background: radial-gradient(ellipse at 15% 0%, #63d2c81f, transparent 55%), radial-gradient(ellipse at 100% 100%, #ff8a6b17, transparent 50%), var(--panel); }
 .cast-panel::before { background: radial-gradient(ellipse at 90% 0%, #c4a6f624, transparent 55%), radial-gradient(ellipse at 0% 100%, #ef749d14, transparent 50%), var(--panel); }
+.noodle-panel::before { background: radial-gradient(ellipse at 88% 0%, #ff8a6b24, transparent 55%), radial-gradient(ellipse at 0% 100%, #ffcf6314, transparent 50%), var(--panel); }
 .storm-panel::before { background: radial-gradient(ellipse at 12% 0%, #8b5cf62e, transparent 55%), radial-gradient(ellipse at 100% 100%, #ffcf6317, transparent 50%), var(--panel); }
 .game { display: grid; grid-template-columns: 1.15fr 1fr; gap: 64px; align-items: center; }
 .game-art {
@@ -209,6 +210,7 @@ h3 { font-size: clamp(36px, 3.6vw, 50px); line-height: 1.02; letter-spacing: -0.
 .reverse .game-art:hover { rotate: 0deg; }
 .reverse .game-copy { grid-column: 1; grid-row: 1; }
 .cast-art { background: radial-gradient(ellipse at top, #48344b, #241d2e); }
+.noodle-art { background: radial-gradient(ellipse at top, #5a2f4f, #211c2b); }
 .storm-art { background: radial-gradient(ellipse at top, #46337a, #211c2b); }
 .game-copy .button.discord { box-shadow: 0 4px 0 #2b2f7a; }
 
