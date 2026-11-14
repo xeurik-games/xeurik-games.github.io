@@ -96,6 +96,15 @@ h1, h2, h3 { font-family: var(--display); font-weight: 800; }
 .glow-pink { width: 560px; height: 560px; right: 2%; top: 8%; background: #ef749d38; }
 .glow-teal { width: 480px; height: 480px; left: -8%; bottom: -12%; background: #63d2c826; animation-delay: -9s; }
 .hero-content, .hero-games { position: relative; z-index: 1; }
+.news-pill {
+  display: inline-flex; align-items: center; gap: 10px; margin: 0 0 24px; padding: 5px 14px 5px 5px;
+  border: 1px solid #ffcf6355; border-radius: 99px; background: #ffcf6312;
+  font-size: 13px; font-weight: 700; line-height: 1.4; transition: background .2s, border-color .2s;
+}
+.news-pill b { padding: 2px 10px; border-radius: 99px; background: var(--yellow); color: #211727; font: 700 10px/1.7 var(--mono); letter-spacing: 1.5px; text-transform: uppercase; }
+.news-pill > span { color: var(--yellow); transition: translate .2s; }
+.news-pill:hover { background: #ffcf6324; border-color: var(--yellow); }
+.news-pill:hover > span { translate: 3px 0; }
 .eyebrow {
   font: 700 10px/1.8 var(--mono); letter-spacing: 2px; text-transform: uppercase;
   color: var(--yellow); margin: 0 0 22px;
@@ -176,6 +185,7 @@ h2 { font-size: clamp(36px, 4.4vw, 58px); letter-spacing: -0.035em; line-height:
 .game-panel::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; }
 .spin-panel::before { background: radial-gradient(ellipse at 15% 0%, #63d2c81f, transparent 55%), radial-gradient(ellipse at 100% 100%, #ff8a6b17, transparent 50%), var(--panel); }
 .cast-panel::before { background: radial-gradient(ellipse at 90% 0%, #c4a6f624, transparent 55%), radial-gradient(ellipse at 0% 100%, #ef749d14, transparent 50%), var(--panel); }
+.storm-panel::before { background: radial-gradient(ellipse at 12% 0%, #8b5cf62e, transparent 55%), radial-gradient(ellipse at 100% 100%, #ffcf6317, transparent 50%), var(--panel); }
 .game { display: grid; grid-template-columns: 1.15fr 1fr; gap: 64px; align-items: center; }
 .game-art {
   position: relative; padding: 18px 18px 40px; border-radius: 22px;
@@ -199,6 +209,8 @@ h3 { font-size: clamp(36px, 3.6vw, 50px); line-height: 1.02; letter-spacing: -0.
 .reverse .game-art:hover { rotate: 0deg; }
 .reverse .game-copy { grid-column: 1; grid-row: 1; }
 .cast-art { background: radial-gradient(ellipse at top, #48344b, #241d2e); }
+.storm-art { background: radial-gradient(ellipse at top, #46337a, #211c2b); }
+.game-copy .button.discord { box-shadow: 0 4px 0 #2b2f7a; }
 
 .facts { list-style: none; padding: 0; margin: 52px 0 8px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
 .facts li { padding: 20px 22px; border: 1px solid var(--line); border-radius: 18px; background: #ffffff06; }
@@ -256,7 +268,7 @@ h3 { font-size: clamp(36px, 3.6vw, 50px); line-height: 1.02; letter-spacing: -0.
 
 /* ---------- Footer ---------- */
 .footer { border-top: 1px solid var(--line); background: #0c0a13; }
-.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 30px; padding: 54px 0 36px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 30px; padding: 54px 0 36px; }
 .footer-brand p { color: var(--dim); font-size: 14px; margin: 16px 0 0; }
 .footer .brand { font-size: 24px; }
 .footer .brand-icon { font-size: 34px; }
@@ -266,6 +278,26 @@ h3 { font-size: clamp(36px, 3.6vw, 50px); line-height: 1.02; letter-spacing: -0.
 .footer-col a:hover, .footer-bottom a:hover { color: var(--yellow); }
 .footer-bottom { display: flex; justify-content: space-between; gap: 20px; padding: 20px 0 30px; border-top: 1px solid var(--line); font-size: 12px; color: #a59bb6; }
 .footer-bottom p { margin: 0; }
+
+/* ---------- Legal pages (stormrift/privacy.html) ---------- */
+.legal { padding: 170px 0 90px; background: radial-gradient(ellipse at 50% 0%, #8b5cf61f, transparent 60%); }
+.legal-inner { width: min(760px, 88%); margin: auto; }
+.legal .eyebrow { margin-bottom: 14px; }
+.legal h1 { font-size: clamp(40px, 6vw, 64px); margin: 0 0 14px; }
+.legal .updated { color: var(--dim); font-size: 14px; margin: 0 0 36px; }
+.legal h2 { font-size: clamp(26px, 3vw, 32px); margin: 48px 0 14px; }
+.legal p, .legal li { color: var(--muted); font-size: 16px; }
+.legal p { margin: 0 0 16px; }
+.legal ul { padding-left: 22px; margin: 0 0 16px; }
+.legal li { margin-bottom: 10px; }
+.legal li::marker { color: var(--yellow); }
+.legal strong { color: var(--text); }
+.legal a:not(.button) { color: var(--yellow); border-bottom: 1px solid #ffcf6355; transition: border-color .2s; }
+.legal a:not(.button):hover { border-color: var(--yellow); }
+.legal .summary { padding: 24px 28px; margin: 0 0 12px; border: 1px solid #ffcf6340; border-radius: 20px; background: #ffcf630a; }
+.legal .summary h2 { margin: 0 0 12px; font-size: 22px; }
+.legal .summary ul { margin: 0; }
+.legal .summary li:last-child { margin-bottom: 0; }
 
 /* ---------- Lightbox & misc ---------- */
 .skip { position: fixed; top: -70px; left: 20px; z-index: 30; background: var(--yellow); color: #111; padding: 12px; }
@@ -280,6 +312,8 @@ body.modal-open { overflow: hidden; }
 /* Scroll reveal: only hidden when JS is running, so the page never ends up blank. */
 .js [data-reveal] { opacity: 0; translate: 0 28px; transition: opacity .7s ease, translate .7s cubic-bezier(.2, .7, .2, 1); }
 .js [data-reveal].in { opacity: 1; translate: 0 0; }
+
+.live-dot.soon { background: var(--yellow); animation: none; box-shadow: 0 0 10px #ffcf6388; }
 
 @keyframes glimmer { to { opacity: .2; transform: translateY(-9px); } }
 @keyframes float { 50% { translate: 0 -12px; } }
@@ -322,7 +356,7 @@ body.modal-open { overflow: hidden; }
   .brand-icon { font-size: 34px; }
   .brand-small { font-size: 8px; }
   .header nav { gap: 13px; font-size: 12px; }
-  .header nav a[href="#studio"] { display: none; }
+  .header nav a[href$="#studio"] { display: none; }
   .nav-discord { width: 34px; height: 34px; }
   .hero { display: block; padding: 135px 7% 100px; text-align: center; min-height: 0; }
   .hero .eyebrow { font-size: 8px; letter-spacing: 1.3px; }
@@ -371,6 +405,10 @@ body.modal-open { overflow: hidden; }
   .studio-inner > p:not(.eyebrow) { font-size: 15px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .footer-brand { grid-column: span 2; }
+  .news-pill { font-size: 12px; margin-bottom: 20px; }
+  .legal { padding: 120px 0 60px; }
+  .legal .summary { padding: 20px; }
+  .legal p, .legal li { font-size: 15px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

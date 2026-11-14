@@ -21,29 +21,32 @@ if ('IntersectionObserver' in window) {
   revealed.forEach(el => el.classList.add('in'));
 }
 
+// Screenshot viewer (the home page only; the legal pages have no screenshots).
 const lightbox = document.getElementById('lightbox');
-const image = lightbox.querySelector('img');
-let opener;
-document.querySelectorAll('[data-lightbox]').forEach(link => {
-  link.addEventListener('click', event => {
-    if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
-    event.preventDefault();
-    opener = link;
-    image.src = link.href;
-    image.alt = link.querySelector('img').alt;
-    lightbox.querySelector('p').textContent = image.alt;
-    lightbox.showModal();
-    document.body.classList.add('modal-open');
+if (lightbox) {
+  const image = lightbox.querySelector('img');
+  let opener;
+  document.querySelectorAll('[data-lightbox]').forEach(link => {
+    link.addEventListener('click', event => {
+      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      opener = link;
+      image.src = link.href;
+      image.alt = link.querySelector('img').alt;
+      lightbox.querySelector('p').textContent = image.alt;
+      lightbox.showModal();
+      document.body.classList.add('modal-open');
+    });
   });
-});
-lightbox.querySelector('.close').addEventListener('click', () => lightbox.close());
-lightbox.addEventListener('click', event => {
-  if (event.target === lightbox) {
-    const bounds = lightbox.getBoundingClientRect();
-    if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) lightbox.close();
-  }
-});
-lightbox.addEventListener('close', () => {
-  document.body.classList.remove('modal-open');
-  opener?.focus();
-});
+  lightbox.querySelector('.close').addEventListener('click', () => lightbox.close());
+  lightbox.addEventListener('click', event => {
+    if (event.target === lightbox) {
+      const bounds = lightbox.getBoundingClientRect();
+      if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) lightbox.close();
+    }
+  });
+  lightbox.addEventListener('close', () => {
+    document.body.classList.remove('modal-open');
+    opener?.focus();
+  });
+}
