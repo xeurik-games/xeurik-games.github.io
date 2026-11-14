@@ -77,6 +77,7 @@ h1, h2, h3 { font-family: var(--display); font-weight: 800; }
 .yellow { background: var(--yellow); }
 .pink { background: var(--pink); }
 .lilac { background: var(--lilac); }
+.orange { background: #ff9d5c; }
 .button.ghost { gap: 12px; color: var(--text); background: #ffffff0d; border: 1px solid #ffffff2e; box-shadow: none; }
 .button.ghost:hover { background: #5865f2; border-color: #5865f2; filter: none; }
 .button.discord { gap: 12px; color: #fff; background: #5865f2; box-shadow: 0 4px 0 #2b2f7a, 0 18px 40px #5865f244; }
@@ -186,6 +187,7 @@ h2 { font-size: clamp(36px, 4.4vw, 58px); letter-spacing: -0.035em; line-height:
 .spin-panel::before { background: radial-gradient(ellipse at 15% 0%, #63d2c81f, transparent 55%), radial-gradient(ellipse at 100% 100%, #ff8a6b17, transparent 50%), var(--panel); }
 .cast-panel::before { background: radial-gradient(ellipse at 90% 0%, #c4a6f624, transparent 55%), radial-gradient(ellipse at 0% 100%, #ef749d14, transparent 50%), var(--panel); }
 .noodle-panel::before { background: radial-gradient(ellipse at 88% 0%, #ff8a6b24, transparent 55%), radial-gradient(ellipse at 0% 100%, #ffcf6314, transparent 50%), var(--panel); }
+.reboot-panel::before { background: radial-gradient(ellipse at 12% 0%, #ff9d5c24, transparent 55%), radial-gradient(ellipse at 100% 100%, #63d2c814, transparent 50%), var(--panel); }
 .storm-panel::before { background: radial-gradient(ellipse at 12% 0%, #8b5cf62e, transparent 55%), radial-gradient(ellipse at 100% 100%, #ffcf6317, transparent 50%), var(--panel); }
 .game { display: grid; grid-template-columns: 1.15fr 1fr; gap: 64px; align-items: center; }
 .game-art {
@@ -211,6 +213,7 @@ h3 { font-size: clamp(36px, 3.6vw, 50px); line-height: 1.02; letter-spacing: -0.
 .reverse .game-copy { grid-column: 1; grid-row: 1; }
 .cast-art { background: radial-gradient(ellipse at top, #48344b, #241d2e); }
 .noodle-art { background: radial-gradient(ellipse at top, #5a2f4f, #211c2b); }
+.reboot-art { background: radial-gradient(ellipse at top, #5c3d2e, #211c2b); }
 .storm-art { background: radial-gradient(ellipse at top, #46337a, #211c2b); }
 .game-copy .button.discord { box-shadow: 0 4px 0 #2b2f7a; }
 
